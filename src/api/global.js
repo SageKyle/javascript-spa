@@ -1,5 +1,6 @@
 const baseURL = 'https://fakestoreapi.com/products'
 
+// return an array of product categories
 async function getCategories() {
 	let categories
 
@@ -20,8 +21,4 @@ async function getCategories() {
 	return categories
 }
 
-function createListItems(array, ...CSSclasses) {
-	return array?.map((item) => `<li class=${CSSclasses}>${item}</li>`).join('')
-}
-
-export { baseURL, createListItems, getCategories }
+export { baseURL, getCategories }

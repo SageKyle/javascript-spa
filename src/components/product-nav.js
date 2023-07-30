@@ -1,4 +1,4 @@
-import { baseURL } from '../api/global.js'
+import { getCategories } from '../api/global.js'
 import { route } from '../app.js'
 
 function createListItems(array, ...CSSclasses) {
@@ -12,15 +12,7 @@ function createListItems(array, ...CSSclasses) {
 
 export default async function productNav() {
 	try {
-		const json = await fetch(baseURL + '/categories')
-
-		if (!json.ok) {
-			throw new Error(
-				'Something went wrong... Check your network and try again'
-			)
-		}
-
-		const categories = await json.json()
+		const categories = await getCategories()
 
 		return `<style>
 					
