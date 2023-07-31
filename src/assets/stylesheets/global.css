@@ -7,13 +7,58 @@ html {
 body {
 	font-size: 1.6rem;
 	width: 100%;
+	padding: 4rem;
 	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+	background-color: rgb(240, 238, 238);
 }
 
 * {
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
+}
+
+a,
+a:link,
+a:visited {
+	text-decoration: none;
+	color: inherit;
+}
+
+.btn {
+	padding: 1rem 2rem;
+	color: white;
+	background-color: dodgerblue;
+	border: 2px solid dodgerblue;
+	border-radius: 1rem;
+	font-size: 2rem;
+	cursor: pointer;
+	transition: all ease-in-out 0.2s;
+}
+
+.btn:hover {
+	color: dodgerblue;
+	background-color: #fff;
+}
+
+.nav-btn {
+	font-size: 2rem;
+	font-weight: 500;
+	background-color: transparent;
+	border: unset;
+	color: dodgerblue;
+	padding-right: 1rem;
+	transition: all ease-in-out 0.2s;
+}
+
+.nav-btn:hover {
+	text-decoration: underline;
+}
+
+.navbar {
+	display: flex;
+	margin-inline: auto 4rem;
+	width: fit-content;
 }
 
 .cat-nav {
@@ -29,4 +74,20 @@ body {
 	text-transform: capitalize;
 	color: dodgerblue;
 	font-size: 1.8rem;
+}
+
+.error-page {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	margin-top: 10rem;
+	text-align: center;
+	gap: 2rem;
+}
+
+.error-404 {
+	font-size: 6rem;
+	font-weight: 700;
 }

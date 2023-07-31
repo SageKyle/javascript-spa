@@ -5,7 +5,9 @@ function createListItems(array, ...CSSclasses) {
 	return array
 		?.map(
 			(item) =>
-				`<li class=${CSSclasses}><a class="category" href=/?category=${item} onclick=${route}>${item}</a></li>`
+				`<li class=${CSSclasses}><a class="category" href=/?category=${encodeURI(
+					item
+				)} onclick=${route}>${item}</a></li>`
 		)
 		.join('')
 }
@@ -42,7 +44,7 @@ export default async function productNav() {
 			}
         </style>
         <ul class="cat-nav">
-				<li class='cat-nav__item active'>All</li>
+				<li class='cat-nav__item active'><a class="category" href='/' onclick=${route}>All</a></li>
                 ${createListItems(categories, 'cat-nav__item')}
             </ul>`
 	} catch (error) {

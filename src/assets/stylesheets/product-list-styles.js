@@ -18,6 +18,7 @@ const productStyles = `<style>
     flex-direction: column;
     justify-content: space-between;
     color: dodgerblue;
+    background-color: white;
     border: 2px solid #ccc;
     padding: 2rem;
     border-radius: 1rem;
