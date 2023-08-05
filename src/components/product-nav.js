@@ -1,5 +1,4 @@
 import { getCategories } from '../api/global.js'
-import { route } from '../app.js'
 
 function createListItems(array, ...CSSclasses) {
 	return array
@@ -7,7 +6,7 @@ function createListItems(array, ...CSSclasses) {
 			(item) =>
 				`<li class=${CSSclasses}><a class="category" href=/?category=${encodeURI(
 					item
-				)} onclick=${route}>${item}</a></li>`
+				)} >${item}</a></li>`
 		)
 		.join('')
 }
@@ -21,6 +20,7 @@ export default async function productNav() {
 			.cat-nav {
 				display: flex;
 				align-items: center;
+				flex-wrap: wrap;
 				gap: 1rem;
 				margin-inline: auto 4rem;
 				margin-block: 4rem;
@@ -44,7 +44,7 @@ export default async function productNav() {
 			}
         </style>
         <ul class="cat-nav">
-				<li class='cat-nav__item active'><a class="category" href='/' onclick=${route}>All</a></li>
+				<li class='cat-nav__item active'><a class="category" href='/' >All</a></li>
                 ${createListItems(categories, 'cat-nav__item')}
             </ul>`
 	} catch (error) {

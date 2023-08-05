@@ -16,7 +16,8 @@ function route(event) {
 // check if the current path (url) is part of the preconfigured routes, else display the 404 page
 async function handleLocation() {
 	const path = window.location.search
-	const html = routes[path] || routes[404]
+	const templateFunc = routes[path] || routes[404]
+	const html = await templateFunc()
 
 	main.innerHTML = html
 }
@@ -26,4 +27,5 @@ window.route = route
 window.onpopstate = handleLocation
 // call the location function on first page load
 handleLocation()
+// export the function so it can be used within custom elements
 export { route }

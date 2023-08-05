@@ -1,3 +1,4 @@
+import { route } from '../../app.js'
 import productList from '../../components/product-list.js'
 import productNav from '../../components/product-nav.js'
 
@@ -31,17 +32,9 @@ export default async function home(category) {
 		}
 
 		connectedCallback() {
-			// this.shadowRoot
-			// 	.querySelector('.cat-nav')
-			// 	.addEventListener('click', (e) => {
-			// 		// check if user clicked on a category
-			// 		if (e.target.classList.contains('category')) {
-			// 			// set selectedCategory to that current category
-			// 			selectedCategory = '/category/' + encodeURI(e.target.textContent)
-			// 			// recall the component (to re-render the current page)
-			// 			home()
-			// 		}
-			// 	})
+			this.shadowRoot
+				.querySelectorAll('.category')
+				.forEach((navLink) => navLink.addEventListener('click', route))
 		}
 	}
 	// create the custom element if it hasn't been created => due to recursion (connectedCallback event)

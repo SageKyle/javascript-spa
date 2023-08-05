@@ -6,14 +6,30 @@ import { getCategories } from './global.js'
 
 // all available routes
 const routes = {
-	'?about': about(),
-	'?home': product(),
-	'': await home(''),
-	'?category=jewelery': await home('jewelery'),
-	'?category=electronics': await home('electronics'),
-	'?category=men%27s%20clothing': await home("men's clothing"),
-	'?category=women%27s%20clothing': await home("women's clothing"),
-	404: error404(),
+	'?about': () => {
+		return about()
+	},
+	'?home': function () {
+		return product()
+	},
+	'': async () => {
+		return await home('')
+	},
+	'?category=jewelery': async () => {
+		return await home('jewelery')
+	},
+	'?category=electronics': async () => {
+		return await home('electronics')
+	},
+	'?category=men%27s%20clothing': async () => {
+		return await home("men's clothing")
+	},
+	'?category=women%27s%20clothing': async () => {
+		return await home("women's clothing")
+	},
+	404: () => {
+		error404()
+	},
 }
 // get product categories array defined in global.js
 // const categories = await getCategories()

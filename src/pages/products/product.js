@@ -22,6 +22,9 @@ class Products extends HTMLElement {
 }
 
 export default function product() {
-	customElements.define('product-page', Products)
+	// create the custom element if it hasn't been created => due to recursion (connectedCallback event)
+	if (!customElements.get('product-page')) {
+		customElements.define('product-page', Products)
+	}
 	return `<product-page></product-page>`
 }
